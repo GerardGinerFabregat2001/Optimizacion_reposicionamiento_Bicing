@@ -1,0 +1,345 @@
+---
+title: "PRUEBA TFM"
+author: "Gerard Giner Fabregat"
+date: "2024-09-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+serie <- read.csv("datos.csv",                 # Nombre del archivo o ruta completa del archivo
+         header = TRUE)
+```
+
+```{r}
+# Cargar las librerías necesarias
+library(dplyr)
+library(tidyr)
+library(lubridate)
+
+# Convertir la columna 'last_updated' a formato datetime con segundos
+serie$last_updated <- ymd_hms(serie$last_updated)
+
+# Crear las nuevas columnas de fecha y hora
+serie <- serie %>%
+  mutate(Fecha_solo = as.Date(last_updated),    # Solo la fecha
+         Hora_solo = format(last_updated, "%H:%M:%S"))  # Solo la hora
+
+# Pivotear los datos para tener horas como columnas y fechas como filas
+tabla_pivot <- serie %>%
+  select(Fecha_solo, Hora_solo, X3.0) %>%
+  pivot_wider(names_from = Hora_solo, values_from = X3.0)
+
+# Convertir a data.frame para poder manipular las filas con rownames
+tabla_pivot <- as.data.frame(tabla_pivot)
+
+# Asignar las fechas como nombres de las filas
+rownames(tabla_pivot) <- tabla_pivot$Fecha_solo
+
+# Eliminar la columna 'Fecha_solo' ya que ahora es el nombre de las filas
+tabla_pivot <- tabla_pivot[, -1]
+
+# Si quieres limitar las filas como antes
+tabla_pivot <- tabla_pivot[1:60, 1:24]
+
+# Mostrar el resultado
+print(tabla_pivot)
+
+```
+
+```{r}
+# Convertir la tabla pivoteada en un vector
+vector_serie <- as.vector(t(tabla_pivot))  # 't' transpone para asegurar que se aplanen las columnas
+
+# Crear la serie temporal (ts)
+serie <- ts(vector_serie, frequency = 24)  # Se asume una frecuencia de 24 observaciones por "unidad de tiempo" (es decir, por día)
+
+```
+
+
+```{r pressure, echo=FALSE}
+plot(serie,main="Paro registrado en España (miles de personas)")
+# abline(v=1:61,col=30,lty=3)
+# text(1996:2019+0.5,5000,1996:2019,cex=0.8)
+```
+```{r}
+m=apply(matrix(serie,nr=24),2,mean)
+v=apply(matrix(serie,nr=24),2,var)
+plot(m,v,xlab="Medias anuales",ylab="Varianzas anuales",main="serie")
+abline(lm(v~m),col=2,lty=3,lwd=2)
+```
+```{r}
+plot(m,v,xlab="Medias anuales",ylab="Varianzas anuales",main="serie",ylim=c(0,60))
+abline(lm(v~m), col=2, lty=3,lwd=2)
+```
+
+```{r}
+boxplot(serie~floor(time(serie)))
+```
+
+
+```{r}
+lnserie=log(serie)
+plot(lnserie)
+```
+```{r}
+boxplot(lnserie~floor(time(lnserie)))
+```
+
+
+
+
+```{r}
+plot(decompose(lnserie))
+```
+
+```{r}
+# Cargar las librerías necesarias
+library(ggplot2)
+
+# Crear un vector que represente las horas del día para cada observación
+# Como tienes una serie temporal con frecuencia de 24 (una por cada hora del día)
+horas <- rep(0:23, length.out = length(lnserie))
+
+# Crear un data frame con la serie y las horas
+df <- data.frame(Hora = factor(horas, levels = 0:23), Valor = as.numeric(lnserie))
+
+# Graficar los valores agrupados por hora del día
+ggplot(df, aes(x = Hora, y = Valor)) +
+  geom_boxplot() +
+  labs(title = "Distribución de los Valores por Hora del Día",
+       x = "Hora del Día", y = "Valor") +
+  theme_minimal()
+```
+```{r}
+d24lnserie=diff(lnserie,24)
+plot(d24lnserie)
+abline(h=0)
+abline(h=mean(d24lnserie),col=2)
+```
+
+```{r}
+d1d24lnserie=diff(d24lnserie,1)
+plot(d1d24lnserie)
+abline(h=0)
+```
+
+```{r}
+var(lnserie)
+var(d24lnserie)
+var(d1d24lnserie)
+d1d1d24lnserie=diff(d1d24lnserie,1) # No necesaria
+var(d1d1d24lnserie)
+```
+
+```{r}
+par(mfrow=c(1,2))
+acf(d1d24lnserie,ylim=c(-1,1),col=c(2,rep(1,23)),lwd=2,lag.max=96)
+pacf(d1d24lnserie,ylim=c(-1,1),col=c(rep(1,23),2),lwd=2,lag.max=96)
+par(mfrow=c(1,1))
+```
+
+```{r}
+(mod1=arima(d1d24lnserie,order=c(1,0,1),seasonal=list(order=c(0,0,1),period=24)))
+```
+
+
+
+
+
+
+
+
+
+## Validació
+
+
+
+```{r}
+#################Validation#################################
+validation=function(model,dades){
+  s=frequency(get(model$series))
+  resid=model$residuals
+  par(mfrow=c(2,2),mar=c(3,3,3,3))
+  #Residuals plot
+  plot(resid,main="Residuals")
+  abline(h=0)
+  abline(h=c(-3*sd(resid),3*sd(resid)),lty=3,col=4)
+  #Square Root of absolute values of residuals (Homocedasticity)
+  scatter.smooth(sqrt(abs(resid)),main="Square Root of Absolute residuals",
+                 lpars=list(col=2))
+  
+  #Normal plot of residuals
+  qqnorm(resid)
+  qqline(resid,col=2,lwd=2)
+  
+  ##Histogram of residuals with normal curve
+  hist(resid,breaks=20,freq=FALSE)
+  curve(dnorm(x,mean=mean(resid),sd=sd(resid)),col=2,add=T)
+  
+  
+  #ACF & PACF of residuals
+  par(mfrow=c(1,2))
+  acf(resid,ylim=c(-1,1),lag.max=60,col=c(2,rep(1,s-1)),lwd=1)
+  pacf(resid,ylim=c(-1,1),lag.max=60,col=c(rep(1,s-1),2),lwd=1)
+  par(mfrow=c(1,1))
+  
+  #ACF & PACF of square residuals 
+  par(mfrow=c(1,2))
+  acf(resid^2,ylim=c(-1,1),lag.max=60,col=c(2,rep(1,s-1)),lwd=1)
+  pacf(resid^2,ylim=c(-1,1),lag.max=60,col=c(rep(1,s-1),2),lwd=1)
+  par(mfrow=c(1,1))
+  
+  #Ljung-Box p-values
+  par(mar=c(2,2,1,1))
+  tsdiag(model,gof.lag=7*s)
+  cat("\n--------------------------------------------------------------------\n")
+  print(model)
+  
+  #Stationary and Invertible
+  cat("\nModul of AR Characteristic polynomial Roots: ", 
+      Mod(polyroot(c(1,-model$model$phi))),"\n")
+  cat("\nModul of MA Characteristic polynomial Roots: ",
+      Mod(polyroot(c(1,model$model$theta))),"\n")
+  
+  #Model expressed as an MA infinity (psi-weights)
+  psis=ARMAtoMA(ar=model$model$phi,ma=model$model$theta,lag.max=36)
+  names(psis)=paste("psi",1:36)
+  cat("\nPsi-weights (MA(inf))\n")
+  cat("\n--------------------\n")
+  print(psis[1:20])
+  
+  #Model expressed as an AR infinity (pi-weights)
+  pis=-ARMAtoMA(ar=-model$model$theta,ma=-model$model$phi,lag.max=36)
+  names(pis)=paste("pi",1:36)
+  cat("\nPi-weights (AR(inf))\n")
+  cat("\n--------------------\n")
+  print(pis[1:20])
+  
+  ## Add here complementary tests (use with caution!)
+  ##---------------------------------------------------------
+  cat("\nNormality Tests\n")
+  cat("\n--------------------\n")
+ 
+  ##Shapiro-Wilks Normality test
+  print(shapiro.test(resid(model)))
+
+  suppressMessages(require(nortest,quietly=TRUE,warn.conflicts=FALSE))
+  ##Anderson-Darling test
+  print(ad.test(resid(model)))
+  
+  suppressMessages(require(tseries,quietly=TRUE,warn.conflicts=FALSE))
+  ##Jarque-Bera test
+  print(jarque.bera.test(resid(model)))
+  
+  cat("\nHomoscedasticity Test\n")
+  cat("\n--------------------\n")
+  suppressMessages(require(lmtest,quietly=TRUE,warn.conflicts=FALSE))
+  ##Breusch-Pagan test
+  obs=get(model$series)
+  print(bptest(resid(model)~I(obs-resid(model))))
+  
+  cat("\nIndependence Tests\n")
+  cat("\n--------------------\n")
+  
+  ##Durbin-Watson test
+  print(dwtest(resid(model)~I(1:length(resid(model)))))
+  
+  ##Ljung-Box test
+  cat("\nLjung-Box test\n")
+  print(t(apply(matrix(c(1:4,(1:4)*s)),1,function(el) {
+    te=Box.test(resid(model),type="Ljung-Box",lag=el)
+    c(lag=(te$parameter),statistic=te$statistic[[1]],p.value=te$p.value)})))
+  
+
+  #Sample ACF vs. Teoric ACF
+  par(mfrow=c(2,2),mar=c(3,3,3,3))
+  acf(dades, ylim=c(-1,1) ,lag.max=36,main="Sample ACF")
+  
+  plot(ARMAacf(model$model$phi,model$model$theta,lag.max=36),ylim=c(-1,1), 
+       type="h",xlab="Lag",  ylab="", main="ACF Teoric")
+  abline(h=0)
+  
+  #Sample PACF vs. Teoric PACF
+  pacf(dades, ylim=c(-1,1) ,lag.max=36,main="Sample PACF")
+  
+  plot(ARMAacf(model$model$phi,model$model$theta,lag.max=36, pacf=T),ylim=c(-1,1),
+       type="h", xlab="Lag", ylab="", main="PACF Teoric")
+  abline(h=0)
+  par(mfrow=c(1,1))
+}
+################# Fi Validation #################################
+```
+
+No es válido
+
+```{r}
+dades=d1d24lnserie
+model=mod1
+validation(model,dades)
+```
+## Forecasting
+
+```{r}
+########### Model stability (without constant!!!) ###############
+
+ultim=c(59,24)
+pdq=c(1,1,1)
+PDQ=c(0,1,1)
+
+serie2=window(serie,end=ultim)
+lnserie2=log(serie2)
+serie1=window(serie,end=ultim+c(1,0))
+lnserie1=log(serie1)
+
+(modA=arima(lnserie1,order=pdq,seasonal=list(order=PDQ,period=12)))
+(modB=arima(lnserie2,order=pdq,seasonal=list(order=PDQ,period=12)))
+```
+```{r}
+pred=predict(modB,n.ahead=24)
+pr<-ts(c(tail(lnserie2,1),pred$pred),start=ultim,freq=24)
+se<-ts(c(0,pred$se),start=ultim,freq=24)
+
+#Intervals
+tl<-ts(exp(pr-1.96*se),start=ultim,freq=24)
+tu<-ts(exp(pr+1.96*se),start=ultim,freq=24)
+pr<-ts(exp(pr),start=ultim,freq=24)
+
+
+ts.plot(serie,tl,tu,pr,lty=c(1,2,2,1),col=c(1,4,4,2),xlim=c(1,61),type="o",main=paste("Model ARIMA(",paste(pdq,collapse=","),")(",paste(PDQ,collapse=","),")24",sep=""))
+abline(v=1:61,lty=3,col=4)
+```
+
+```{r}
+pr
+```
+
+```{r}
+serie[1416:1440]
+```
+```{r}
+(previs=window(cbind(tl,pr,tu,serie,error=round(serie-pr,3)),start=ultim))
+
+obs=window(serie,start=ultim)
+
+mod.RMSE1=sqrt(sum((obs-pr)^2)/12)
+mod.MAE1=sum(abs(obs-pr))/12
+mod.RMSPE1=sqrt(sum(((obs-pr)/obs)^2)/12)
+mod.MAPE1=sum(abs(obs-pr)/obs)/12
+
+data.frame("RMSE"=mod.RMSE1,"MAE"=mod.MAE1,"RMSPE"=mod.RMSPE1,"MAPE"=mod.MAPE1)
+
+mCI1=mean(tu-tl)
+
+cat("\nMean Length CI: ",mCI1)
+```
+
