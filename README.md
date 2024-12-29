@@ -5,7 +5,9 @@ Este repositorio contiene el código principal utilizado en el Trabajo de Fin de
 ## Contenido del repositorio
 
 * **1-DATOS:** conjunto de datos utilizados para el análisis y desarrollo de modelos. También incluye los resultados obtenidos durante el mismo.
-* **2-CODIGO:** *scripts* y *notebooks* que implementan los análisis y modelos desarrollados.
+* **2-CODIGO:** *scripts* y *notebooks* que implementan los análisis y crean los diferentes modelos.
+* **3-CASO PRACTICO:** *scripts* y *notebooks* que el técnico de *Bicing* debería ejecutar para diseñar las rutas de reposicionamiento.
+* **4-DIAGRAMAS:** contienen imágenes que se han utilizado en el trabajo para clarificar explicaciones del mismo.
 * **README.md:** archivo con información general sobre el proyecto y el repositorio.
 
 ## Fuentes de datos
@@ -43,7 +45,16 @@ git clone https://github.com/GerardGinerFabregat2001/Optimizacion_reposicionamie
 ```
 * Navega al directorio del proyecto.
 
-* Accede al directorio 2-CODIGO y ejecuta los *scripts* o *notebooks* según el análisis o modelo que desees explorar.
+* Ejecución de código.
+
+El proyecto está dividido en dos bloques principales:
+
+1. **Replicación del análisis y visualizaciones:**
+para replicar los análisis descriptivos, evaluaciones de técnicas predictivas y métodos de optimización realizados en el trabajo, se deben ejecutar los *notebooks* del directorio 2-CODIGO.
+
+
+2. **Predicción y rutas para el reposicionamiento:**
+el núcleo práctico del proyecto está en el uso de los modelos de predicción entrenados y la obtención de rutas con el algoritmo de optimización elegido. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
 
 ## Autor
 Este proyecto ha sido desarrollado por Gerard Giner Fabregat como parte de su Trabajo de Fin de Máster, y pueden contactar con él a través de [Linkedin](https://es.linkedin.com/in/gerard-giner-fabregat-8bbb7231a).
