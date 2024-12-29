@@ -77,8 +77,9 @@ print(data_filtered)
 serie <- ts(data_filtered['494.0'], frequency = 24)
 ```
 
-![](Ejemplo_SARIMA_494_files/figure-gfm/pressure-1.png)<!-- --> Se
-observa que la varianza no es constante.
+![](Ejemplo_SARIMA_494_files/figure-gfm/pressure-1.png)<!-- -->
+
+Se observa que la varianza no es constante.
 
 ``` r
 m=apply(matrix(serie,nr=24),2,mean)
@@ -94,6 +95,7 @@ boxplot(serie~floor(time(serie)))
 ```
 
 ![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
 Se aplica transformación logarítmica para reducir la variabilidad.
 
 ``` r
@@ -111,6 +113,7 @@ plot(decompose(lnserie))
 ```
 
 ![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
 La serie tiene un claro patrón estacional horario.
 
 ``` r
@@ -144,6 +147,7 @@ abline(h=mean(d24lnserie),col=2)
 ```
 
 ![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
 No parece haber evidencia de una tendencia en los datos. Sin embargo,
 para garantizar que tengan una media constante, se aplica una
 diferenciación regular.
@@ -348,8 +352,9 @@ validation=function(model,dades){
 ```
 
 No es un modelo válido, ya que no cumple con las suposiciones
-estadísticas necarias: los residuos no siguen una distribución normal,
-no son indepenpendientes y no tienen varianza homogénea.
+estadísticas necesarias: los residuos no siguen una distribución normal
+(colas pesadas), no son indepenpendientes y no tienen varianza
+homogénea.
 
 ``` r
 dades=d1d24lnserie

@@ -49,6 +49,7 @@ serie <- ts(data_filtered['494.0'], frequency = 24)
 ```{r pressure, echo=FALSE}
 plot(serie,main="Estación 494")
 ```
+
 Se observa que la varianza no es constante.
 
 ```{r}
@@ -62,6 +63,7 @@ abline(lm(v~m),col=2,lty=3,lwd=2)
 ```{r}
 boxplot(serie~floor(time(serie)))
 ```
+
 Se aplica transformación logarítmica para reducir la variabilidad.
 
 ```{r}
@@ -75,6 +77,7 @@ Se descompone el logaritmo de la serie para ver tendencia y estacionalidad.
 ```{r}
 plot(decompose(lnserie))
 ```
+
 La serie tiene un claro patrón estacional horario.
 
 ```{r}
@@ -104,6 +107,7 @@ plot(d24lnserie)
 abline(h=0)
 abline(h=mean(d24lnserie),col=2)
 ```
+
 No parece haber evidencia de una tendencia en los datos. Sin embargo, para garantizar que tengan una media constante, se aplica una diferenciación regular.
 
 ```{r}
@@ -263,7 +267,7 @@ validation=function(model,dades){
 ################# Fi Validation #################################
 ```
 
-No es un modelo válido, ya que no cumple con las suposiciones estadísticas necarias: los residuos no siguen una distribución normal, no son indepenpendientes y no tienen varianza homogénea.
+No es un modelo válido, ya que no cumple con las suposiciones estadísticas necesarias: los residuos no siguen una distribución normal (colas pesadas), no son indepenpendientes y no tienen varianza homogénea.
 
 ```{r}
 dades=d1d24lnserie
