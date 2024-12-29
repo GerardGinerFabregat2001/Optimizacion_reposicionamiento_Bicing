@@ -43,7 +43,7 @@ git clone https://github.com/GerardGinerFabregat2001/Optimizacion_reposicionamie
 ```
 * Navega al directorio del proyecto.
 
-* Accede al directorio 2-CODIGO y ejecuta los scripts o notebooks según el análisis o modelo que desees explorar.
+* Accede al directorio 2-CODIGO y ejecuta los *scripts* o *notebooks* según el análisis o modelo que desees explorar.
 
 ## Autor
 Este proyecto ha sido desarrollado por Gerard Giner Fabregat como parte de su Trabajo de Fin de Máster, y pueden contactar con él a través de [Linkedin](https://es.linkedin.com/in/gerard-giner-fabregat-8bbb7231a).

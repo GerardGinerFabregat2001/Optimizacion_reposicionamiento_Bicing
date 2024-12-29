@@ -1,0 +1,218 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0" version="25.0.3">
+  <diagram name="Página-1" id="TcY5MZNrnw-7XUBEPLQv">
+    <mxGraphModel dx="1167" dy="2836" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="RKbozviBFmEI2_MTx0Mp-1" target="RKbozviBFmEI2_MTx0Mp-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="RKbozviBFmEI2_MTx0Mp-1" target="RKbozviBFmEI2_MTx0Mp-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-1" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;BICING&lt;/b&gt;&lt;/font&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="120" y="-2320" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-2" target="RKbozviBFmEI2_MTx0Mp-40" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-2" target="RKbozviBFmEI2_MTx0Mp-39" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="755" y="-2230" />
+              <mxPoint x="540" y="-2230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-2" target="RKbozviBFmEI2_MTx0Mp-47" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-2" target="RKbozviBFmEI2_MTx0Mp-48" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="755" y="-2230" />
+              <mxPoint x="970" y="-2230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;AUXILIARES&lt;/b&gt;&lt;/font&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="650" y="-2320" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-6" value="&lt;b&gt;ESTACIONES&lt;/b&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="46" y="-2220" width="170" height="120" as="geometry">
+            <mxRectangle x="300" y="-2330" width="150" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-7" value="- Información mensual&lt;div&gt;- Cantidad de bicicletas&lt;/div&gt;&lt;div&gt;- Ejemplo:&amp;nbsp;2022_01_Gener&lt;/div&gt;&lt;div&gt;_BicingNou_ESTACIONS.csv&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="RKbozviBFmEI2_MTx0Mp-6" vertex="1">
+          <mxGeometry y="30" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="RKbozviBFmEI2_MTx0Mp-9" target="RKbozviBFmEI2_MTx0Mp-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-9" value="&lt;b&gt;INFORMACIÓN&lt;/b&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="230" y="-2220" width="180" height="120" as="geometry">
+            <mxRectangle x="300" y="-2330" width="150" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-10" value="- Información mensual&lt;div&gt;- Ubicación y capacidad de&lt;/div&gt;&lt;div&gt;&amp;nbsp; las estaciones&lt;/div&gt;&lt;div&gt;- Ejemplo:&amp;nbsp;2022_01_Gener&lt;/div&gt;&lt;div&gt;_BicingNou_INFORMACIO.csv&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="RKbozviBFmEI2_MTx0Mp-9" vertex="1">
+          <mxGeometry y="30" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RKbozviBFmEI2_MTx0Mp-16" target="RKbozviBFmEI2_MTx0Mp-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-16" value="Extracción de cantidad de bicicletas + conversión a parquet" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="66" y="-2063" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="RKbozviBFmEI2_MTx0Mp-7" target="RKbozviBFmEI2_MTx0Mp-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-19" target="RKbozviBFmEI2_MTx0Mp-32" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-19" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Se ha considerado la ubicación del inicio del trabajo (2024-09)&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="203" y="-2061" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-23" target="RKbozviBFmEI2_MTx0Mp-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-23" value="Concatenación de información&amp;nbsp;&lt;div&gt;(conjunto único)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="66" y="-1961" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RKbozviBFmEI2_MTx0Mp-25" target="RKbozviBFmEI2_MTx0Mp-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-25" value="Conversión a datos horarios" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="66" y="-1863" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-32" value="Conjunto de datos con la ubicación de 519 estaciones" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="208" y="-1961" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="RKbozviBFmEI2_MTx0Mp-35" target="RKbozviBFmEI2_MTx0Mp-36" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-35" value="Filtrado de estaciones por exceso de vacíos" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="66" y="-1773" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-36" value="Conjunto de datos con la cantidad de bicicletas de 498 estaciones" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="71.5" y="-1690" width="119" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-39" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="-2080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-39" value="&lt;b&gt;Información geospacial&lt;/b&gt; (archivo .json con la delimitación de los distritos)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="470" y="-2200" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-60" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-40" target="RKbozviBFmEI2_MTx0Mp-57" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-40" value="&lt;b&gt;Distancias&lt;/b&gt; entre las 519 estaciones&lt;div&gt;(tiempo y metros)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="610" y="-2200" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-61" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-47" target="RKbozviBFmEI2_MTx0Mp-58" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-47" value="&lt;b&gt;Información climatológica&lt;/b&gt; (Barcelona Drassanes y Barcelona Villa Olímpica)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="750" y="-2200" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="RKbozviBFmEI2_MTx0Mp-48" target="RKbozviBFmEI2_MTx0Mp-59" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-48" value="&lt;b&gt;Población &lt;/b&gt;por distritos" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="910" y="-2200" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-56" value="Fuente: GeoPortal de Barcelona" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="480" y="-2080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-57" value="Código proporcionado a la API de Google" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="620" y="-2080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-58" value="Fuente: AEMET" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="770" y="-2080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RKbozviBFmEI2_MTx0Mp-59" value="Fuente: Open Data Barcelona" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="920" y="-2080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-6" value="Conjunto de datos con la capacidad mensual de las estaciones" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="337" y="-1961" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="RKbozviBFmEI2_MTx0Mp-10" target="vcKm9Th1UIGKHqDHGL48-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="-2080" />
+              <mxPoint x="397" y="-2080" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vcKm9Th1UIGKHqDHGL48-8" target="vcKm9Th1UIGKHqDHGL48-17">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="683" y="-1800" />
+              <mxPoint x="415" y="-1800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="vcKm9Th1UIGKHqDHGL48-8" target="vcKm9Th1UIGKHqDHGL48-23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="683" y="-1800" />
+              <mxPoint x="775" y="-1800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="vcKm9Th1UIGKHqDHGL48-8" target="vcKm9Th1UIGKHqDHGL48-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="683" y="-1800" />
+              <mxPoint x="955" y="-1800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-8" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;USO&lt;/b&gt;&lt;/font&gt;" style="shape=ext;double=1;rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="578" y="-1901" width="210" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-17" value="&lt;b&gt;VULNERABILIDAD&lt;/b&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="325" y="-1732" width="180" height="120" as="geometry">
+            <mxRectangle x="300" y="-2330" width="150" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-18" value="- Cantidad de bicicletas&lt;div&gt;- Ubicación de las estaciones&lt;/div&gt;&lt;div&gt;- Información geospacial&lt;/div&gt;&lt;div&gt;- Distancias entre estaciones&lt;/div&gt;&lt;div&gt;- Población por distritos&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="vcKm9Th1UIGKHqDHGL48-17">
+          <mxGeometry y="30" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-21" value="&lt;b&gt;&lt;i&gt;CLUSTERING&lt;/i&gt;&lt;/b&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="505" y="-1732" width="180" height="120" as="geometry">
+            <mxRectangle x="300" y="-2330" width="150" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-22" value="- Cantidad de bicicletas&lt;div&gt;- Ubicación de las estaciones&lt;/div&gt;&lt;div&gt;- Información geospacial&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="vcKm9Th1UIGKHqDHGL48-21">
+          <mxGeometry y="30" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-23" value="&lt;b&gt;PREDICCIÓN&lt;/b&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="685" y="-1732" width="180" height="120" as="geometry">
+            <mxRectangle x="300" y="-2330" width="150" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-24" value="- Cantidad de bicicletas&lt;div&gt;- Información climatológica&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="vcKm9Th1UIGKHqDHGL48-23">
+          <mxGeometry y="30" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-25" value="&lt;b&gt;OPTIMIZACIÓN&lt;/b&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="865" y="-1732" width="180" height="120" as="geometry">
+            <mxRectangle x="300" y="-2330" width="150" height="50" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-26" value="- Cantidad de bicicletas&lt;div&gt;- Ubicación de las estaciones&lt;/div&gt;&lt;div&gt;-&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Capacidad de las estaciones&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;- Distancias entre estaciones&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="vcKm9Th1UIGKHqDHGL48-25">
+          <mxGeometry y="30" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="vcKm9Th1UIGKHqDHGL48-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.461;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="vcKm9Th1UIGKHqDHGL48-8" target="vcKm9Th1UIGKHqDHGL48-21">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="683" y="-1800" />
+              <mxPoint x="588" y="-1800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
