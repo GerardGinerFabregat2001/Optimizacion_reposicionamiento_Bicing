@@ -1,106 +1,81 @@
 ---
 title: "PRUEBA TFM"
-author: "Gerard Giner Fabregat"
-date: "2024-09-24"
-output: html_document
+output: 
+  github_document: 
+    toc: false # Opcional, agrega tabla de contenidos
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-serie <- read.csv("datos.csv",                 # Nombre del archivo o ruta completa del archivo
-         header = TRUE)
-```
 
 ```{r}
-# Cargar las librerías necesarias
-library(dplyr)
-library(tidyr)
-library(lubridate)
+library(arrow)  
+library(dplyr)  
 
-# Convertir la columna 'last_updated' a formato datetime con segundos
-serie$last_updated <- ymd_hms(serie$last_updated)
+file_path <- "../../1-DATOS/2-DATOS PROCESADOS/BICING/INFORMACION COMPLETA/BICICLETAS_HORARIO_2022_2023_FILTRADO.parquet"
+data <- read_parquet(file_path)
 
-# Crear las nuevas columnas de fecha y hora
-serie <- serie %>%
-  mutate(Fecha_solo = as.Date(last_updated),    # Solo la fecha
-         Hora_solo = format(last_updated, "%H:%M:%S"))  # Solo la hora
+if ("FECHA" %in% colnames(data)) {
+  data <- data %>%
+    mutate(FECHA = as.POSIXct(FECHA, format = "%Y-%m-%d %H:%M:%S"))
+} else {
+  stop("La columna 'FECHA' no se encuentra en los datos.")
+}
 
-# Pivotear los datos para tener horas como columnas y fechas como filas
-tabla_pivot <- serie %>%
-  select(Fecha_solo, Hora_solo, X3.0) %>%
-  pivot_wider(names_from = Hora_solo, values_from = X3.0)
+# Filtra los datos entre 2022-03-01 y 2022-04-01 (se puede replicar el análisis 
+# en cualquier otro periodo)
+data_filtered <- data %>%
+  filter(FECHA >= as.POSIXct("2022-03-01") & FECHA <= as.POSIXct("2022-04-01")) 
 
-# Convertir a data.frame para poder manipular las filas con rownames
-tabla_pivot <- as.data.frame(tabla_pivot)
+# Selecciona solo las columnas necesarias
+data_filtered <- data_filtered %>%
+  select(`494.0`, FECHA) 
 
-# Asignar las fechas como nombres de las filas
-rownames(tabla_pivot) <- tabla_pivot$Fecha_solo
+data_filtered <- data_filtered %>%
+  mutate(`494.0` = ifelse(`494.0` == 0, 0.1, `494.0`))
 
-# Eliminar la columna 'Fecha_solo' ya que ahora es el nombre de las filas
-tabla_pivot <- tabla_pivot[, -1]
-
-# Si quieres limitar las filas como antes
-tabla_pivot <- tabla_pivot[1:60, 1:24]
-
-# Mostrar el resultado
-print(tabla_pivot)
+# Muestra el resultado
+print(data_filtered)
 
 ```
+
 
 ```{r}
-# Convertir la tabla pivoteada en un vector
-vector_serie <- as.vector(t(tabla_pivot))  # 't' transpone para asegurar que se aplanen las columnas
-
-# Crear la serie temporal (ts)
-serie <- ts(vector_serie, frequency = 24)  # Se asume una frecuencia de 24 observaciones por "unidad de tiempo" (es decir, por día)
-
+serie <- ts(data_filtered['494.0'], frequency = 24)
 ```
-
 
 ```{r pressure, echo=FALSE}
-plot(serie,main="Paro registrado en España (miles de personas)")
-# abline(v=1:61,col=30,lty=3)
-# text(1996:2019+0.5,5000,1996:2019,cex=0.8)
+plot(serie,main="Estación 494")
 ```
+Se observa que la varianza no es constante.
+
 ```{r}
 m=apply(matrix(serie,nr=24),2,mean)
 v=apply(matrix(serie,nr=24),2,var)
-plot(m,v,xlab="Medias anuales",ylab="Varianzas anuales",main="serie")
+plot(m,v,xlab="Medias diarias",ylab="Varianzas diarias",main="serie")
 abline(lm(v~m),col=2,lty=3,lwd=2)
 ```
-```{r}
-plot(m,v,xlab="Medias anuales",ylab="Varianzas anuales",main="serie",ylim=c(0,60))
-abline(lm(v~m), col=2, lty=3,lwd=2)
-```
+
 
 ```{r}
 boxplot(serie~floor(time(serie)))
 ```
-
+Se aplica transformación logarítmica para reducir la variabilidad.
 
 ```{r}
 lnserie=log(serie)
 plot(lnserie)
 ```
-```{r}
-boxplot(lnserie~floor(time(lnserie)))
-```
 
 
-
+Se descompone el logaritmo de la serie para ver tendencia y estacionalidad.
 
 ```{r}
 plot(decompose(lnserie))
 ```
+La serie tiene un claro patrón estacional horario.
 
 ```{r}
 # Cargar las librerías necesarias
@@ -120,12 +95,16 @@ ggplot(df, aes(x = Hora, y = Valor)) +
        x = "Hora del Día", y = "Valor") +
   theme_minimal()
 ```
+
+Se estudia la existencia de tendencias en los datos:
+
 ```{r}
 d24lnserie=diff(lnserie,24)
 plot(d24lnserie)
 abline(h=0)
 abline(h=mean(d24lnserie),col=2)
 ```
+No parece haber evidencia de una tendencia en los datos. Sin embargo, para garantizar que tengan una media constante, se aplica una diferenciación regular.
 
 ```{r}
 d1d24lnserie=diff(d24lnserie,1)
@@ -133,7 +112,10 @@ plot(d1d24lnserie)
 abline(h=0)
 ```
 
+Se comprueba que no se esté realizando sobreajuste con excesivas diferenciaciones.
+
 ```{r}
+var(serie)
 var(lnserie)
 var(d24lnserie)
 var(d1d24lnserie)
@@ -143,13 +125,14 @@ var(d1d1d24lnserie)
 
 ```{r}
 par(mfrow=c(1,2))
-acf(d1d24lnserie,ylim=c(-1,1),col=c(2,rep(1,23)),lwd=2,lag.max=96)
-pacf(d1d24lnserie,ylim=c(-1,1),col=c(rep(1,23),2),lwd=2,lag.max=96)
+acf(d1d24lnserie,ylim=c(-1,1),col=c(2,rep(1,23)),lwd=2,lag.max=96, main="Autocorrelación de la Serie")
+pacf(d1d24lnserie,ylim=c(-1,1),col=c(rep(1,23),2),lwd=2,lag.max=96, main="Autocorrelación Parcial de la Serie")
 par(mfrow=c(1,1))
 ```
+A partir de la autocorrelación y la autocorrelación parcial, se propone un $SARIMA(1,0,1)(6,0,0)_{24}$.
 
 ```{r}
-(mod1=arima(d1d24lnserie,order=c(1,0,1),seasonal=list(order=c(0,0,1),period=24)))
+(mod1=arima(d1d24lnserie,order=c(1,0,1),seasonal=list(order=c(6,0,0),period=24)))
 ```
 
 
@@ -160,7 +143,7 @@ par(mfrow=c(1,1))
 
 
 
-## Validació
+## Validación
 
 
 
@@ -280,66 +263,10 @@ validation=function(model,dades){
 ################# Fi Validation #################################
 ```
 
-No es válido
+No es un modelo válido, ya que no cumple con las suposiciones estadísticas necarias: los residuos no siguen una distribución normal, no son indepenpendientes y no tienen varianza homogénea.
 
 ```{r}
 dades=d1d24lnserie
 model=mod1
 validation(model,dades)
 ```
-## Forecasting
-
-```{r}
-########### Model stability (without constant!!!) ###############
-
-ultim=c(59,24)
-pdq=c(1,1,1)
-PDQ=c(0,1,1)
-
-serie2=window(serie,end=ultim)
-lnserie2=log(serie2)
-serie1=window(serie,end=ultim+c(1,0))
-lnserie1=log(serie1)
-
-(modA=arima(lnserie1,order=pdq,seasonal=list(order=PDQ,period=12)))
-(modB=arima(lnserie2,order=pdq,seasonal=list(order=PDQ,period=12)))
-```
-```{r}
-pred=predict(modB,n.ahead=24)
-pr<-ts(c(tail(lnserie2,1),pred$pred),start=ultim,freq=24)
-se<-ts(c(0,pred$se),start=ultim,freq=24)
-
-#Intervals
-tl<-ts(exp(pr-1.96*se),start=ultim,freq=24)
-tu<-ts(exp(pr+1.96*se),start=ultim,freq=24)
-pr<-ts(exp(pr),start=ultim,freq=24)
-
-
-ts.plot(serie,tl,tu,pr,lty=c(1,2,2,1),col=c(1,4,4,2),xlim=c(1,61),type="o",main=paste("Model ARIMA(",paste(pdq,collapse=","),")(",paste(PDQ,collapse=","),")24",sep=""))
-abline(v=1:61,lty=3,col=4)
-```
-
-```{r}
-pr
-```
-
-```{r}
-serie[1416:1440]
-```
-```{r}
-(previs=window(cbind(tl,pr,tu,serie,error=round(serie-pr,3)),start=ultim))
-
-obs=window(serie,start=ultim)
-
-mod.RMSE1=sqrt(sum((obs-pr)^2)/12)
-mod.MAE1=sum(abs(obs-pr))/12
-mod.RMSPE1=sqrt(sum(((obs-pr)/obs)^2)/12)
-mod.MAPE1=sum(abs(obs-pr)/obs)/12
-
-data.frame("RMSE"=mod.RMSE1,"MAE"=mod.MAE1,"RMSPE"=mod.RMSPE1,"MAPE"=mod.MAPE1)
-
-mCI1=mean(tu-tl)
-
-cat("\nMean Length CI: ",mCI1)
-```
-
