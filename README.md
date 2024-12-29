@@ -1,6 +1,6 @@
-# Optimización del reposicionamiento en el sistema *Bicing* de Barcelona
+# Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona
 
-Este repositorio contiene el código principal utilizado en el Trabajo de Fin de Máster titulado "Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona". El proyecto abarca análisis descriptivos, técnicas predictivas y modelos de optimización para mejorar la distribución de bicicletas en el sistema *Bicing* de Barcelona.
+Este repositorio contiene el código principal utilizado en el Trabajo de Fin de Máster titulado **"Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona"**. El proyecto abarca análisis descriptivos, técnicas predictivas y modelos de optimización para mejorar la distribución de bicicletas en el sistema *Bicing* de Barcelona.
 
 ## Contenido del repositorio
 
@@ -55,6 +55,9 @@ para replicar los análisis descriptivos, evaluaciones de técnicas predictivas 
 
 2. **Predicción y rutas para el reposicionamiento:**
 el núcleo práctico del proyecto está en el uso de los modelos de predicción entrenados y la obtención de rutas con el algoritmo de optimización elegido. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *scripts* y *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
+
+## Conclusiones
+Los resultados reflejan que es necesario realizar un seguimiento contínuo en el servicio y que es posible mejorar la satisfacción de los usuarios a partir del reposicionamiento proactivo de bicicletas, ya que reduce los problemas de saturación y desabastecimiento de bicicletas que sufren ciertas estaciones en momentos puntuales.
 
 ## Autor
 Este proyecto ha sido desarrollado por Gerard Giner Fabregat como parte de su Trabajo de Fin de Máster, y pueden contactar con él a través de [Linkedin](https://es.linkedin.com/in/gerard-giner-fabregat-8bbb7231a).
