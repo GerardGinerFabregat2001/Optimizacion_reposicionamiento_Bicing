@@ -47,14 +47,14 @@ git clone https://github.com/GerardGinerFabregat2001/Optimizacion_reposicionamie
 
 El proyecto está dividido en dos bloques principales:
 
-1. **Replicación del análisis y visualizaciones:**
+1. **Replicación del análisis:**
 para replicar los análisis descriptivos y las evaluaciones de los modelos predictivos y de optimización creados en el trabajo (así como la creación de los mismos), se deben ejecutar los *notebooks* del directorio 2-CODIGO.
 
 
-2. **Predicción y rutas para el reposicionamiento:**
-el núcleo práctico del proyecto está en el uso de los modelos de predicción entrenados y la obtención de rutas a partir de las predicciones, utilizando el algoritmo de optimización seleccionado. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *scripts* y *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
+2. **Caso práctico:**
+la mayor aportación de este proyecto recae en el uso de los modelos de predicción entrenados y la obtención de rutas a partir de las predicciones, utilizando el algoritmo de optimización seleccionado. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *scripts* y *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
 
-## Conclusiones
+## ConclusionesK
 Los resultados reflejan que es necesario realizar un seguimiento contínuo en el servicio y que es posible mejorar la satisfacción de los usuarios a partir del reposicionamiento proactivo de bicicletas, ya que reduce los problemas de saturación y desabastecimiento de bicicletas que sufren ciertas estaciones en momentos puntuales.
 
 ## Autor
