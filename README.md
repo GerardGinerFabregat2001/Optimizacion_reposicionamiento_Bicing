@@ -12,10 +12,10 @@ Este repositorio contiene el código principal utilizado en el Trabajo de Fin de
 
 Este proyecto utiliza información obtenida de las siguientes fuentes:
 
-* **Bicing (Open Data Barcelona):** información sobre el uso y la disponibilidad de bicicletas en el sistema Bicing de Barcelona. 
-* **Open Data Barcelona:** información adicional como la población por distritos de la ciudad.
+* **Open Data Barcelona:** información sobre el uso y la disponibilidad de bicicletas en el sistema Bicing de Barcelona e información adicional como la población por distritos de la ciudad.
 * **Geoportal BCN:** información geográfica  del Ayuntamiento de Barcelona.
 * **AEMET:** datos meteorológicos proporcionados por la Agencia Estatal de Meteorología.
+* **Google Maps:** a través de la API de Google, se obtienen las distancias entre estaciones y el tiempo necesario para ir de una a otra con un vehículo.
 
 ## Estructura del proyecto
 
