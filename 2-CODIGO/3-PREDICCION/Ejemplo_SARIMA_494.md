@@ -1,9 +1,8 @@
-PRUEBA TFM
+SARIMA
 ================
 
 ``` r
-# Cargar las librerías necesarias
-library(arrow)  # Para leer archivos Parquet
+library(arrow)  
 ```
 
     ## Warning: package 'arrow' was built under R version 4.4.2
@@ -18,7 +17,7 @@ library(arrow)  # Para leer archivos Parquet
     ##     timestamp
 
 ``` r
-library(dplyr)  # Para manipulación de datos
+library(dplyr)  
 ```
 
     ## 
@@ -33,13 +32,9 @@ library(dplyr)  # Para manipulación de datos
     ##     intersect, setdiff, setequal, union
 
 ``` r
-# Especifica la ruta del archivo Parquet
 file_path <- "../../1-DATOS/2-DATOS PROCESADOS/BICING/INFORMACION COMPLETA/BICICLETAS_HORARIO_2022_2023_FILTRADO.parquet"
-
-# Lee el archivo Parquet
 data <- read_parquet(file_path)
 
-# Verifica si la columna de fecha existe y conviértela a formato POSIXct
 if ("FECHA" %in% colnames(data)) {
   data <- data %>%
     mutate(FECHA = as.POSIXct(FECHA, format = "%Y-%m-%d %H:%M:%S"))
@@ -54,7 +49,7 @@ data_filtered <- data %>%
 
 # Selecciona solo las columnas necesarias
 data_filtered <- data_filtered %>%
-  select(`494.0`, FECHA)  # Asegúrate de que `494.0` sea el nombre exacto de la columna
+  select(`494.0`, FECHA) 
 
 data_filtered <- data_filtered %>%
   mutate(`494.0` = ifelse(`494.0` == 0, 0.1, `494.0`))
@@ -82,7 +77,7 @@ print(data_filtered)
 serie <- ts(data_filtered['494.0'], frequency = 24)
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/pressure-1.png)<!-- --> Se
+![](Ejemplo_SARIMA_494_files/figure-gfm/pressure-1.png)<!-- --> Se
 observa que la varianza no es constante.
 
 ``` r
@@ -92,13 +87,13 @@ plot(m,v,xlab="Medias diarias",ylab="Varianzas diarias",main="serie")
 abline(lm(v~m),col=2,lty=3,lwd=2)
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ``` r
 boxplot(serie~floor(time(serie)))
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 Se aplica transformación logarítmica para reducir la variabilidad.
 
 ``` r
@@ -106,7 +101,7 @@ lnserie=log(serie)
 plot(lnserie)
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 Se descompone el logaritmo de la serie para ver tendencia y
 estacionalidad.
@@ -115,7 +110,7 @@ estacionalidad.
 plot(decompose(lnserie))
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 La serie tiene un claro patrón estacional horario.
 
 ``` r
@@ -137,7 +132,7 @@ ggplot(df, aes(x = Hora, y = Valor)) +
   theme_minimal()
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 Se estudia la existencia de tendencias en los datos:
 
@@ -148,7 +143,7 @@ abline(h=0)
 abline(h=mean(d24lnserie),col=2)
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 No parece haber evidencia de una tendencia en los datos. Sin embargo,
 para garantizar que tengan una media constante, se aplica una
 diferenciación regular.
@@ -159,7 +154,10 @@ plot(d1d24lnserie)
 abline(h=0)
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+Se comprueba que no se esté realizando sobreajuste con excesivas
+diferenciaciones.
 
 ``` r
 var(serie)
@@ -203,11 +201,14 @@ acf(d1d24lnserie,ylim=c(-1,1),col=c(2,rep(1,23)),lwd=2,lag.max=96, main="Autocor
 pacf(d1d24lnserie,ylim=c(-1,1),col=c(rep(1,23),2),lwd=2,lag.max=96, main="Autocorrelación Parcial de la Serie")
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ``` r
 par(mfrow=c(1,1))
 ```
+
+A partir de la autocorrelación y la autocorrelación parcial, se propone
+un $SARIMA(1,0,1)(6,0,0)_{24}$.
 
 ``` r
 (mod1=arima(d1d24lnserie,order=c(1,0,1),seasonal=list(order=c(6,0,0),period=24)))
@@ -356,7 +357,7 @@ model=mod1
 validation(model,dades)
 ```
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-14-3.png)<!-- -->![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-14-4.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-14-3.png)<!-- -->![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-14-4.png)<!-- -->
 
     ## 
     ## --------------------------------------------------------------------
@@ -455,4 +456,4 @@ validation(model,dades)
     ## [7,]     72 52.8322665 0.9562982
     ## [8,]     96 75.2962289 0.9416127
 
-![](PRUEBA-TFM---copia_files/figure-gfm/unnamed-chunk-14-5.png)<!-- -->
+![](Ejemplo_SARIMA_494_files/figure-gfm/unnamed-chunk-14-5.png)<!-- -->
