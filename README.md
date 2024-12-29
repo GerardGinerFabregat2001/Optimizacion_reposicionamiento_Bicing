@@ -7,7 +7,7 @@ Este repositorio contiene el código principal utilizado en el Trabajo de Fin de
 * **1-DATOS:** conjunto de datos utilizados para el análisis y desarrollo de modelos. También incluye los resultados obtenidos durante el mismo.
 * **2-CODIGO:** *scripts* y *notebooks* que implementan los análisis y crean los diferentes modelos.
 * **3-CASO PRACTICO:** *scripts* y *notebooks* que el técnico de *Bicing* debería ejecutar para diseñar las rutas de reposicionamiento.
-* **4-DIAGRAMAS:** contienen imágenes que se han utilizado en el trabajo para clarificar explicaciones del mismo.
+* **4-DIAGRAMAS:** contiene imágenes que se han utilizado en el trabajo para clarificar explicaciones del mismo.
 * **README.md:** archivo con información general sobre el proyecto y el repositorio.
 
 ## Fuentes de datos
@@ -19,7 +19,7 @@ Este proyecto utiliza información obtenida de las siguientes fuentes:
 * **AEMET:** datos meteorológicos proporcionados por la Agencia Estatal de Meteorología.
 * **Google Maps:** a través de la API de Google, se obtienen las distancias entre estaciones y el tiempo necesario para ir de una a otra con un vehículo.
 
-## Estructura del proyecto
+## Objetivos del proyecto
 
 * **Análisis descriptivo:** exploración de los datos para comprender patrones y tendencias en el uso del sistema *Bicing*. Asismismo, se evalúa la vulnerabilidad de los distritos en términos de accesibilidad con la creación de métricas.
 * **Técnicas predictivas:** desarrollo de modelos para predecir la demanda de bicicletas en diferentes estaciones y momentos.
@@ -54,7 +54,7 @@ para replicar los análisis descriptivos, evaluaciones de técnicas predictivas 
 
 
 2. **Predicción y rutas para el reposicionamiento:**
-el núcleo práctico del proyecto está en el uso de los modelos de predicción entrenados y la obtención de rutas con el algoritmo de optimización elegido. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
+el núcleo práctico del proyecto está en el uso de los modelos de predicción entrenados y la obtención de rutas con el algoritmo de optimización elegido. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *scripts* y *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
 
 ## Autor
 Este proyecto ha sido desarrollado por Gerard Giner Fabregat como parte de su Trabajo de Fin de Máster, y pueden contactar con él a través de [Linkedin](https://es.linkedin.com/in/gerard-giner-fabregat-8bbb7231a).
