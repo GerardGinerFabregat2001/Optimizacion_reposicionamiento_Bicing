@@ -54,7 +54,7 @@ para replicar los análisis descriptivos y las evaluaciones de los modelos predi
 2. **Caso práctico:**
 la mayor aportación de este proyecto recae en el uso de los modelos de predicción entrenados y la obtención de rutas a partir de las predicciones, utilizando el algoritmo de optimización seleccionado. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *scripts* y *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
 
-## ConclusionesK
+## Conclusiones
 Los resultados reflejan que es necesario realizar un seguimiento contínuo en el servicio y que es posible mejorar la satisfacción de los usuarios a partir del reposicionamiento proactivo de bicicletas, ya que reduce los problemas de saturación y desabastecimiento de bicicletas que sufren ciertas estaciones en momentos puntuales.
 
 ## Autor
