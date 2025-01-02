@@ -1,4 +1,4 @@
-# Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona (hola)
+# Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona 
 
 Este repositorio contiene el código principal utilizado en el Trabajo de Fin de Máster titulado **"Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona"**. El proyecto incluye análisis descriptivos y la creación y evaluación de modelos predictivos y de optimización para mejorar la distribución de bicicletas en el sistema *Bicing* de Barcelona.
 
