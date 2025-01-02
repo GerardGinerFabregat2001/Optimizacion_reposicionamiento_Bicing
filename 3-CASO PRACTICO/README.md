@@ -1,5 +1,4 @@
-# Directorio 2-CODIGO
-
+# Directorio 3-CASO PRACTICO
 Este directorio incluye todos los archivos necesarios para que un técnico del servicio *Bicing* pueda diseñar las rutas de reposicionamiento que deben seguir los trabajadores. Además, contiene un ejemplo práctico que muestra los resultados obtenidos para el día 5 de octubre de 2023, en el turno comprendido entre las 08:00 h y las 16:00 h.
 
 ## EJECUCIÓN
