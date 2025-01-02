@@ -21,7 +21,7 @@ Este proyecto utiliza información obtenida de las siguientes fuentes:
 
 ## Objetivos del proyecto
 
-* **Análisis descriptivo:** exploración de los datos para comprender patrones y tendencias en el uso del sistema *Bicing*. Asismismo, se evalúa la vulnerabilidad de los distritos en términos de accesibilidad con la creación de métricas.
+* **Análisis descriptivo:** exploración de los datos para comprender patrones y tendencias en el uso del sistema *Bicing*. Asimismo, se evalúa la vulnerabilidad de los distritos en términos de accesibilidad con la creación de métricas.
 * **Modelos predictivos:** desarrollo de modelos para predecir la saturación y desabastecimiento de bicicletas en diferentes estaciones y momentos.
 * **Modelos de optimización:** implementación de algoritmos para diseñar rutas eficientes en función de las necesidades del sistema. El objetivo es minimizar la cantidad de situaciones en las que una estación se encuentra en riesgo de estar desabastecida o saturada de bicicletas.
 
@@ -32,7 +32,7 @@ Para ejecutar correctamente este proyecto, es necesario tener instalado Python 3
 * **Skforecast**: versión 0.13.0
 * **Tensorflow**: versión 2.16.2
 
-Además de estas dos, otras librerías generales como **pandas**, **numpy**, **scikit-learn**, **matplotlib** y **scipy** son necesarias para tareas de análisis de datos, visualización y preprocesamiento.
+Además de estas dos, librerías como **pandas**, **numpy**, **scikit-learn**, **matplotlib** y **scipy**, entre otras, son necesarias para tareas de análisis de datos, visualización y preprocesamiento.
 
 <!-- Se recomienda crear un entorno virtual para gestionar las dependencias y garantizar que las versiones instaladas no entren en conflicto con otros proyectos:-->
 
@@ -48,11 +48,11 @@ git clone https://github.com/GerardGinerFabregat2001/Optimizacion_reposicionamie
 El proyecto está dividido en dos bloques principales:
 
 1. **Replicación del análisis:**
-para replicar los análisis descriptivos y las evaluaciones de los modelos predictivos y de optimización creados en el trabajo (así como la creación de los mismos), se deben ejecutar los *notebooks* del directorio 2-CODIGO.
+para ello, se deben ejecutar los *notebooks* del directorio 2-CODIGO. Este directorio incluye los análisis descriptivos y las evaluaciones de los modelos predictivos y de optimización desarrollados, así como los procesos de creación de dichos modelos.
 
 
 2. **Caso práctico:**
-la mayor aportación de este proyecto recae en el uso de los modelos de predicción entrenados y la obtención de rutas a partir de las predicciones, utilizando el algoritmo de optimización seleccionado. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *scripts* y *notebooks* necesarios para ello y los resultados obtenidos para un caso concreto.
+la mayor aportación de este proyecto recae en el uso de los modelos de predicción entrenados y la obtención de rutas a partir de las predicciones, utilizando el algoritmo de optimización seleccionado. En el directorio 3-CASO PRACTICO, se incluyen únicamente los *scripts* y *notebooks* necesarios para ello, junto con los resultados obtenidos para un caso concreto.
 
 ## Conclusiones
 Los resultados reflejan que es necesario realizar un seguimiento contínuo en el servicio y que es posible mejorar la satisfacción de los usuarios a partir del reposicionamiento proactivo de bicicletas, ya que reduce los problemas de saturación y desabastecimiento de bicicletas que sufren ciertas estaciones en momentos puntuales.
