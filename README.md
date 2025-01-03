@@ -44,7 +44,7 @@ git clone https://github.com/GerardGinerFabregat2001/Optimizacion_reposicionamie
 ```
 3. Crea un entorno virtual (por ejemplo, usando venv):
 ```bash
-python3 -m venv env
+py -3.11 -m venv env
 ```
 4. Activa el entorno virtual:
     * En Windows:
