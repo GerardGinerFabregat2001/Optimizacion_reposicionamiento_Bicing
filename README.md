@@ -27,23 +27,44 @@ Este proyecto utiliza información obtenida de las siguientes fuentes:
 
 ## Requisitos
 
-Para ejecutar correctamente este proyecto, es necesario tener instalado Python 3.x y varias librerías adicionales. Entre ellas, hay dos que requieren especial atención debido a sus versiones específicas:
+Para evitar posibles conflictos entre librerías y versiones de Python, se deben seguir seguir los siguientes pasos. 
 
-* **Skforecast**: versión 0.13.0
-* **Tensorflow**: versión 2.16.2
+* **Instalar las dependencias:** se deben instalar las versiones de las librerías especificadas en el archivo requirements.txt.
+* **Instalar versión de Python 3.11.x:** se ha utilizado la versión 3.11.9 y se recomienda utilizar cualquier versión 3.11.x, ya que algunas librerías utilizadas en este proyecto no han sido actualizadas para versiones posteriores.
 
-Además de estas dos, librerías como **pandas**, **numpy**, **scikit-learn**, **matplotlib** y **scipy**, entre otras, son necesarias para tareas de análisis de datos, visualización y preprocesamiento.
 
-<!-- Se recomienda crear un entorno virtual para gestionar las dependencias y garantizar que las versiones instaladas no entren en conflicto con otros proyectos:-->
 
 ## Uso
-
-* Clona este repositorio en tu máquina local.
+Para utilizar este proyecto en tu máquina local, sigue los pasos listados a continuación:
+1. Abre una terminal en tu PC.
+2. Ejecuta el siguiente comando para clonar el repositorio.
 
 ```bash
 git clone https://github.com/GerardGinerFabregat2001/Optimizacion_reposicionamiento_Bicing.git
 ```
-* Ejecución de código.
+3. Accede al directorio clonado:
+```bash
+cd Optimizacion_reposicionamiento_Bicing
+```
+4. Crea un entorno virtual (por ejemplo, usando venv):
+```bash
+python3 -m venv env
+```
+5. Activa el entorno virtual:
+    * En Windows:
+    ```bash
+    env\Scripts\activate
+    ```
+    * En macOS/Linux:
+    ```bash
+    source env/bin/activate
+    ```
+6. Instala las dependencias necesarias desde el archivo ```requirements.txt```:
+```bash 
+pip install -r requirements.txt
+```
+
+**Ejecución de código**
 
 El proyecto está dividido en dos bloques principales:
 
