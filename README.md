@@ -27,10 +27,10 @@ Este proyecto utiliza información obtenida de las siguientes fuentes:
 
 ## Requisitos
 
-Para evitar posibles conflictos entre librerías y versiones de Python, se deben seguir seguir los siguientes pasos. 
+Para evitar posibles conflictos entre librerías y versiones de Python, se deben seguir los siguientes pasos:
 
-* **Instalar las dependencias:** se deben instalar las versiones de las librerías especificadas en el archivo requirements.txt.
-* **Instalar versión de Python 3.11.x:** se ha utilizado la versión 3.11.9 y se recomienda utilizar cualquier versión 3.11.x, ya que algunas librerías utilizadas en este proyecto no han sido actualizadas para versiones posteriores.
+* **Instalar las dependencias:** se deben instalar las versiones de las librerías especificadas en el archivo ```requirements.txt```.
+* **Instalar versión de Python 3.11.x:** se ha utilizado la versión 3.11.9 y se recomienda utilizar cualquier versión 3.11.x, ya que algunas librerías utilizadas en este proyecto no han sido actualizadas para versiones posteriores de Python.
 
 
 
