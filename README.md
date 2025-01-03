@@ -42,15 +42,11 @@ Para utilizar este proyecto en tu máquina local, sigue los pasos listados a con
 ```bash
 git clone https://github.com/GerardGinerFabregat2001/Optimizacion_reposicionamiento_Bicing.git
 ```
-3. Accede al directorio clonado:
-```bash
-cd Optimizacion_reposicionamiento_Bicing
-```
-4. Crea un entorno virtual (por ejemplo, usando venv):
+3. Crea un entorno virtual (por ejemplo, usando venv):
 ```bash
 python3 -m venv env
 ```
-5. Activa el entorno virtual:
+4. Activa el entorno virtual:
     * En Windows:
     ```bash
     env\Scripts\activate
@@ -59,9 +55,9 @@ python3 -m venv env
     ```bash
     source env/bin/activate
     ```
-6. Instala las dependencias necesarias desde el archivo ```requirements.txt```:
+5. Instala las dependencias necesarias desde el archivo ```requirements.txt```:
 ```bash 
-pip install -r requirements.txt
+pip install -r Optimizacion_reposicionamiento_Bicing\requirements.txt
 ```
 
 **Ejecución de código**
