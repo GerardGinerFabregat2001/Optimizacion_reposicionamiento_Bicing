@@ -1,6 +1,6 @@
-# Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona 
+# Intelligent Optimization of Bike-Sharing Systems: Predictive Models and Algorithms for Equitable Bicycle Distribution in Barcelona
 
-Este repositorio contiene el código principal utilizado en el Trabajo de Fin de Máster titulado **"Optimización de la distribución de las estaciones y de las bicicletas de *Bicing* Barcelona"**. El proyecto incluye análisis descriptivos y la creación y evaluación de modelos predictivos y de optimización para mejorar la distribución de bicicletas en el sistema *Bicing* de Barcelona.
+Este repositorio contiene el código principal utilizado del artículo **"Intelligent Optimization of Bike-Sharing Systems: Predictive Models and Algorithms for Equitable Bicycle Distribution in Barcelona"**. El proyecto incluye análisis descriptivos y la creación y evaluación de modelos predictivos y de optimización para mejorar la distribución de bicicletas en el sistema *Bicing* de Barcelona.
 
 ## Contenido del repositorio
 
@@ -75,4 +75,4 @@ la mayor aportación de este proyecto recae en el uso de los modelos de predicci
 Los resultados reflejan que es necesario realizar un seguimiento contínuo en el servicio y que es posible mejorar la satisfacción de los usuarios a partir del reposicionamiento proactivo de bicicletas, ya que reduce los problemas de saturación y desabastecimiento de bicicletas que sufren ciertas estaciones en momentos puntuales.
 
 ## Autor
-Este proyecto ha sido desarrollado por Gerard Giner Fabregat como parte de su Trabajo de Fin de Máster, y pueden contactar con él a través de [Linkedin](https://es.linkedin.com/in/gerard-giner-fabregat-8bbb7231a).
+Este repositorio ha sido desarrollado por Gerard Giner Fabregat, y pueden contactar con él a través de [Linkedin](https://es.linkedin.com/in/gerard-giner-fabregat-8bbb7231a).
